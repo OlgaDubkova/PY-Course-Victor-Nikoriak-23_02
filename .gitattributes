@@ -1,4 +1,16 @@
 * text=auto
 
 # Do not normalize Jupyter notebooks
+
 *.ipynb binary
+
+# Force LF for source files
+*.py text eol=lf
+*.md text eol=lf
+
+*.ipynb filter=nbstripout
+*.zpln filter=nbstripout
+*.ipynb diff=ipynb
+
+# Windows scripts
+*.bat text eol=crlf

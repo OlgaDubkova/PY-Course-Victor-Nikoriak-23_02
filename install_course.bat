@@ -1,19 +1,21 @@
 @echo off
+chcp 65001 >nul
 
 echo.
 echo ============================================
 echo   Python Course -- Environment Setup
+echo   (Voila)
 echo ============================================
 echo.
 
-:: Check Python
+:: --------------------------------------------
+:: 1) Check Python
+:: --------------------------------------------
+
 python --version >nul 2>&1
 if errorlevel 1 (
     echo [ERROR] Python not found!
-    echo.
-    echo Download Python 3.10+ from: https://python.org
-    echo During install: check "Add Python to PATH"
-    echo.
+    echo Install Python 3.10+ and check "Add to PATH"
     pause
     exit /b 1
 )
@@ -22,11 +24,14 @@ echo [1/5] Python found:
 python --version
 echo.
 
-:: Create .venv
-if exist .venv\ (
+:: --------------------------------------------
+:: 2) Create virtual environment
+:: --------------------------------------------
+
+if exist .venv (
     echo [2/5] .venv already exists, skipping...
 ) else (
-    echo [2/5] Creating virtual environment .venv ...
+    echo [2/5] Creating virtual environment...
     python -m venv .venv
     if errorlevel 1 (
         echo [ERROR] Could not create .venv
@@ -37,9 +42,21 @@ if exist .venv\ (
 )
 echo.
 
-:: Install packages
-echo [3/5] Installing packages (2-3 min) ...
-.venv\Scripts\pip.exe install -r requirements.txt --quiet
+:: --------------------------------------------
+:: 3) Upgrade pip
+:: --------------------------------------------
+
+echo [3/5] Upgrading pip...
+.venv\Scripts\python.exe -m pip install --upgrade pip >nul
+echo        OK
+echo.
+
+:: --------------------------------------------
+:: 4) Install packages
+:: --------------------------------------------
+
+echo [4/5] Installing requirements (1-2 min)...
+.venv\Scripts\pip.exe install -r requirements.txt
 if errorlevel 1 (
     echo [ERROR] Package installation failed
     pause
@@ -48,23 +65,18 @@ if errorlevel 1 (
 echo        OK
 echo.
 
-:: Register nbextensions
-echo [4/5] Setting up Jupyter extensions ...
-.venv\Scripts\jupyter.exe contrib nbextension install --user >nul 2>&1
-.venv\Scripts\jupyter.exe nbextension enable hide_input/main           >nul 2>&1
-.venv\Scripts\jupyter.exe nbextension enable collapsible_headings/main >nul 2>&1
-.venv\Scripts\jupyter.exe nbextension enable codefolding/main          >nul 2>&1
-echo        OK
-echo.
+:: --------------------------------------------
+:: 5) Register kernel
+:: --------------------------------------------
 
-:: Register kernel
-echo [5/5] Registering Python kernel ...
-.venv\Scripts\python.exe -m ipykernel install --user --name python-course --display-name "Python Course" >nul 2>&1
+echo [5/5] Registering kernel...
+.venv\Scripts\python.exe -m ipykernel install --user --name python-course --display-name "Python Course"
 echo        OK
 echo.
 
 echo ============================================
-echo   Done! Run start_course.bat to begin.
+echo   Setup complete!
+echo   Now run: start_course.bat
 echo ============================================
 echo.
 pause
