@@ -1,0 +1,4 @@
+* text=auto
+
+# Do not normalize Jupyter notebooks
+*.ipynb binary
