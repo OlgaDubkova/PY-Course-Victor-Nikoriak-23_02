@@ -1,0 +1,17 @@
+{
+    "project": "Restaurant File I/O Demo",
+    "currency": "UAH",
+    "total_orders": 12,
+    "total_revenue": 2900.0,
+    "average_price": 241.67,
+    "revenue_by_city": {
+        "Kyiv": 1500.0,
+        "Lviv": 850.0,
+        "Odesa": 550.0
+    },
+    "top_dishes": {
+        "Pizza": 3,
+        "Pasta": 3,
+        "Burger": 2
+    }
+}

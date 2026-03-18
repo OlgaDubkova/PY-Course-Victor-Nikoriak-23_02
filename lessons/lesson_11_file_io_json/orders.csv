@@ -1,0 +1,13 @@
+order_id,customer_name,dish,price,order_date,city
+1,Anna,Pizza,320,2026-03-10 12:30,Kyiv
+2,Oleh,Burger,210,2026-03-10 13:10,Lviv
+3,Ira,Pasta,280,2026-03-11 18:45,Kyiv
+4,Max,Soup,150,2026-03-11 14:20,Odesa
+5,Nina,Pizza,320,2026-03-12 19:05,Lviv
+6,Andrii,Salad,190,2026-03-12 11:50,Kyiv
+7,Sofi,Burger,210,2026-03-13 16:40,Odesa
+8,Den,Pasta,280,2026-03-13 20:15,Kyiv
+9,Kate,Pizza,320,2026-03-14 13:00,Lviv
+10,Vasyl,Soup,150,2026-03-14 19:30,Kyiv
+11,Lena,Salad,190,2026-03-15 12:10,Odesa
+12,Roman,Pasta,280,2026-03-15 20:45,Kyiv
