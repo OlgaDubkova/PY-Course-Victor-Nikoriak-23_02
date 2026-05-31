@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Видалити нотатку</title>
+</head>
+<body>
+    <h1>Ви впевнені, що хочете видалити нотатку "{{ note.title }}"?</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white;">Так, видалити</button>
+        <a href="{% url 'note_detail_edit' note.pk %}">Скасувати</a>
+    </form>
+</body>
+</html>

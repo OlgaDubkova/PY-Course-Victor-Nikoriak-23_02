@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Редагування: {{ note.title }}</title>
+</head>
+<body>
+    <h1>Деталі та Редагування нотатки</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зберегти зміни</button>
+    </form>
+
+    <hr>
+    <p><a href="{% url 'note_delete' note.pk %}" style="color: red;">Видалити цю нотатку</a></p>
+    <p><a href="{% url 'note_create' %}">Назад до створення</a></p>
+</body>
+</html>

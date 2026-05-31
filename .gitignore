@@ -53,4 +53,6 @@ CLAUDE.md
 dashboard/
 
 data/
-
+# Django local database
+db.sqlite3
+*.sqlite3

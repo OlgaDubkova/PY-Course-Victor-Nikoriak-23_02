@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Створення нотатки</title>
+</head>
+<body>
+    <h1>Створити нотатку</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Зберегти нотатку</button>
+    </form>
+
+    <h2>Мої нотатки:</h2>
+    <ul>
+        {% for note in notes %}
+            <li>
+                <a href="{% url 'note_detail_edit' note.pk %}">{{ note.title }}</a>
+            </li>
+        {% empty %}
+            <li>Нотаток ще немає.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
